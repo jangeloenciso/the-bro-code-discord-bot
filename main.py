@@ -1,6 +1,7 @@
 import os
 import discord
 import random
+import re
 from dotenv import load_dotenv
 from broticles import articles
 
@@ -25,15 +26,21 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
+
+    def has_numbers(inputString):
+        return bool(re.search(r'\d', inputString))
+
     if message.author == client.user:
         return
     
     content = message.content
     j = ""
-    for i in content:
-        if i.isdigit():
-            j += i
-    ref = int(j)    
+    
+    if has_numbers(content):
+        for i in content:
+            if i.isdigit():
+                j += i
+            ref = int(j)    
     print(j)
 
     if content == 'BroCode!':
