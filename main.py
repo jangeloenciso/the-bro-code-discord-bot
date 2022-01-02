@@ -39,7 +39,7 @@ async def on_message(message):
     if content == 'BroCode!':
         response = random.choice(articles)
         await message.channel.send(response)
-    elif j != -1:
+    elif j != "":
         if 'BroCode!' in content:
             if ref in articles:
                 response = articles[ref]
