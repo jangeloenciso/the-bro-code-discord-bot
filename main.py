@@ -40,7 +40,7 @@ async def on_message(message):
         for i in content:
             if i.isdigit():
                 j += i
-            ref = int(j)    
+        ref = int(j)    
     print(j)
 
     if content == 'BroCode!':
